@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/gwtbootstrap3/gwtbootstrap3-demo.svg?branch=master)](https://travis-ci.org/gwtbootstrap3/gwtbootstrap3-demo)
 
-## Note: This project is inactive.
+## Note: This project is active.
 
 ## About
 This is the source code for that [GwtBootstrap3](https://github.com/gwtbootstrap3/gwtbootstrap3) and [GwtBootstrap3-Extras](https://github.com/gwtbootstrap3/gwtbootstrap3-extras) demos.
