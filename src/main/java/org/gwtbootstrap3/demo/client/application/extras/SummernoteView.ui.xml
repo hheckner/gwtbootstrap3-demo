@@ -199,6 +199,8 @@
                     <b:Button addStyleNames="{style.spacing2}" type="PRIMARY" text="Enable" ui:field="enable"/>
                     <b:Button addStyleNames="{style.spacing2}" type="PRIMARY" text="Disable" ui:field="disable"/>
                     <b:Button addStyleNames="{style.spacing2}" type="PRIMARY" text="Reset" ui:field="reset"/>
+                    <b:Button addStyleNames="{style.spacing2}" type="PRIMARY" text="Set Focus" ui:field="setfocus"/>
+                    
                 </b:PanelBody>
                 <b:PanelFooter>
                     <b:Heading size="H4" text="UiBinder"/>
@@ -221,7 +223,9 @@
                         // Reset\n
                         apiTest.reset();\n\n
                         // Clear\n
-                        apiTest.clear();
+                        apiTest.clear();\n\n
+                         // Focus\n
+                        apiTest.setHasFocus();                        
                     </d:PrettyPre>
                 </b:PanelFooter>
             </b:Panel>

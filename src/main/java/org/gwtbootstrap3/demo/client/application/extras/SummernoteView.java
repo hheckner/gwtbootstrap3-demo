@@ -31,6 +31,7 @@ import org.gwtbootstrap3.extras.summernote.client.event.SummernoteBlurEvent;
 import org.gwtbootstrap3.extras.summernote.client.event.SummernoteChangeEvent;
 import org.gwtbootstrap3.extras.summernote.client.event.SummernoteEnterEvent;
 import org.gwtbootstrap3.extras.summernote.client.event.SummernoteFocusEvent;
+import org.gwtbootstrap3.extras.summernote.client.event.SummernoteFocusHandler;
 import org.gwtbootstrap3.extras.summernote.client.event.SummernoteImageUploadEvent;
 import org.gwtbootstrap3.extras.summernote.client.event.SummernoteImageUploadEvent.ImageFile;
 import org.gwtbootstrap3.extras.summernote.client.event.SummernoteInitEvent;
@@ -112,6 +113,11 @@ public class SummernoteView extends ViewImpl implements SummernotePresenter.MyVi
     @UiHandler("disable")
     void disable(final ClickEvent event) {
         apiTest.setEnabled(false);
+    }
+    
+    @UiHandler("setfocus")
+    void setFocus(final ClickEvent event) {
+        apiTest.setHasFocus(true); 
     }
 
     @UiHandler("reset")
@@ -200,6 +206,13 @@ public class SummernoteView extends ViewImpl implements SummernotePresenter.MyVi
         logRow.add(logEntry);
     }
 
+    private final SummernoteFocusHandler onSummernoteFocus = new SummernoteFocusHandler() {
+
+        @Override
+        public void onSummernoteFocus(final SummernoteFocusEvent event) {
+            apiTest.setCode("on focus fired");            
+        }
+    };
     interface Binder extends UiBinder<Widget, SummernoteView> {
     }
 
@@ -207,7 +220,8 @@ public class SummernoteView extends ViewImpl implements SummernotePresenter.MyVi
     SummernoteView(final Binder uiBinder) {
 
         initWidget(uiBinder.createAndBindUi(this));
-
+        apiTest.addSummernoteFocusHandler(onSummernoteFocus);
+        
         // Hint for words
         hintWords.setHint("\\b(\\w{1,})$", new DefaultHintHandler() {
 
